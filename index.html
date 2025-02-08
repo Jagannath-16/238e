@@ -468,5 +468,91 @@
         <h2>What Our Customers Say</h2>
         <div class="testimonial-cards">
             <div class="testimonial-card">
-                <
+                <p>"The Nissan Rogue is the perfect car for my family. It’s spacious, reliable, and has all the tech I need!"</p>
+                <p>- Sarah, New York</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"I absolutely love my Nissan Altima. It's sleek, fast, and a pleasure to drive every day."</p>
+                <p>- John, California</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"The Nissan Leaf is the future of driving. I feel good knowing I’m helping the environment!"</p>
+                <p>- Emily, Texas</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What is the warranty on Nissan cars?</h3>
+            <p>All new Nissan vehicles come with a 3-year/36,000-mile basic warranty and a 5-year/60,000-mile powertrain warranty.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I test drive a car before buying?</h3>
+            <p>Yes! You can schedule a test drive at your local Nissan dealership at any time.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Are financing options available?</h3>
+            <p>Yes! We offer various financing options, including loans and leases tailored to your needs.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us!</p>
+        <a href="mailto:support@nissan.com" class="btn-primary">Email Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nissan Motor Corporation</p>
+        <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#sitemap">Sitemap</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // JavaScript to update price dynamically
+        const basePrices = {
+            altima: 30000,
+            rogue: 35000,
+            leaf: 25000
+        };
+
+        const colorPrices = {
+            black: 0,
+            white: 0,
+            red: 500,
+            blue: 500,
+            silver: 0
+        };
+
+        function updatePrice() {
+            const model = document.getElementById('car-model').value;
+            const color = document.getElementById('car-color').value;
+            const sunroof = document.querySelector('input[value="sunroof"]').checked ? 1500 : 0;
+            const leatherSeats = document.querySelector('input[value="leather-seats"]').checked ? 2000 : 0;
+            const sportsPackage = document.querySelector('input[value="sports-package"]').checked ? 2500 : 0;
+
+            const basePrice = basePrices[model];
+            const colorPrice = colorPrices[color];
+            const accessoriesPrice = sunroof + leatherSeats + sportsPackage;
+
+            const totalPrice = basePrice + colorPrice + accessoriesPrice;
+
+            document.getElementById('base-price').innerText = basePrice;
+            document.getElementById('color-price').innerText = colorPrice;
+            document.getElementById('accessories-price').innerText = accessoriesPrice;
+            document.getElementById('total-price').innerText = totalPrice;
+        }
+    </script>
+</body>
+</html>
