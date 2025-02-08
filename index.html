@@ -5,8 +5,340 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official Nissan Website - Explore our car models, customization options, prices, and financing plans.">
     <title>Nissan Automobiles</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            width: 100px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff6600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('nissan-hero.jpg') center/cover no-repeat;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .hero .btn-primary {
+            background-color: #ff6600;
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero .btn-primary:hover {
+            background-color: #e55d00;
+        }
+
+        /* Car Models Section */
+        .models {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .models h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .models p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .model-cards {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .model-cards .card {
+            background: #f4f4f4;
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .model-cards .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .model-cards .card h3 {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        .model-cards .card p {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        .model-cards .card .btn-secondary {
+            background-color: #ff6600;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .model-cards .card .btn-secondary:hover {
+            background-color: #e55d00;
+        }
+
+        /* Customization Section */
+        .customize {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .customization-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .car-options {
+            width: 45%;
+        }
+
+        .price-summary {
+            width: 45%;
+            text-align: left;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+
+        .price-summary p {
+            font-size: 1.2em;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-cards {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            width: 30%;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .testimonial-card p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card p:last-child {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .faq h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .pricing-options {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background-color: #fff;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8em;
+        }
+
+        .pricing-card button {
+            background-color: #ff6600;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pricing-card button:hover {
+            background-color: #e55d00;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .contact .btn-primary {
+            background-color: #ff6600;
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .contact .btn-primary:hover {
+            background-color: #e55d00;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            color: #ff6600;
+        }
+    </style>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -20,6 +352,8 @@
                 <li><a href="#models">Car Models</a></li>
                 <li><a href="#customize">Customize Your Car</a></li>
                 <li><a href="#pricing">Pricing & Loans</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -37,18 +371,102 @@
     <!-- Car Models Section -->
     <section id="models" class="models">
         <h2>Featured Models</h2>
+        <p>Discover our top models, packed with the latest technology, safety features, and luxury options.</p>
         <div class="model-cards">
             <div class="card">
                 <img src="nissan-altima.jpg" alt="Nissan Altima">
                 <h3>Nissan Altima</h3>
-                <p>A sleek sedan with advanced technology and premium features.</p>
+                <p>A sleek sedan with advanced technology and premium features. Perfect for everyday driving with a touch of luxury.</p>
                 <a href="#customize" class="btn-secondary">Customize Now</a>
             </div>
             <div class="card">
                 <img src="nissan-rogue.jpg" alt="Nissan Rogue">
                 <h3>Nissan Rogue</h3>
-                <p>Perfect for adventure with spacious interiors and cutting-edge tech.</p>
+                <p>Perfect for adventure with spacious interiors, cutting-edge tech, and a comfortable ride for the whole family.</p>
                 <a href="#customize" class="btn-secondary">Customize Now</a>
             </div>
             <div class="card">
-                <img 
+                <img src="nissan-leaf.jpg" alt="Nissan Leaf">
+                <h3>Nissan Leaf</h3>
+                <p>The world’s best-selling electric car, offering eco-friendly driving with zero emissions and innovative tech.</p>
+                <a href="#customize" class="btn-secondary">Customize Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Section -->
+    <section id="customize" class="customize">
+        <h2>Customize Your Car</h2>
+        <p>Select your preferred model, color, and accessories to create your dream car!</p>
+
+        <div class="customization-container">
+            <div class="car-options">
+                <h3>Select Model</h3>
+                <select id="car-model" onchange="updatePrice()">
+                    <option value="altima">Nissan Altima</option>
+                    <option value="rogue">Nissan Rogue</option>
+                    <option value="leaf">Nissan Leaf</option>
+                </select>
+
+                <h3>Select Color</h3>
+                <select id="car-color" onchange="updatePrice()">
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="silver">Silver</option>
+                </select>
+
+                <h3>Select Accessories</h3>
+                <label>
+                    <input type="checkbox" value="sunroof" onclick="updatePrice()"> Sunroof ($1500)
+                </label>
+                <label>
+                    <input type="checkbox" value="leather-seats" onclick="updatePrice()"> Leather Seats ($2000)
+                </label>
+                <label>
+                    <input type="checkbox" value="sports-package" onclick="updatePrice()"> Sports Package ($2500)
+                </label>
+            </div>
+
+            <div class="price-summary">
+                <h3>Price Summary</h3>
+                <p>Base Price: $<span id="base-price">30000</span></p>
+                <p>Color Premium: $<span id="color-price">0</span></p>
+                <p>Accessories Price: $<span id="accessories-price">0</span></p>
+                <p>Total Price: $<span id="total-price">30000</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing and Loans Section -->
+    <section id="pricing" class="pricing">
+        <h2>Pricing & Loans</h2>
+        <p>Explore pricing options and available financing plans for each model.</p>
+
+        <div class="pricing-options">
+            <div class="pricing-card">
+                <h3>Nissan Altima</h3>
+                <p>Starting at $30,000</p>
+                <button class="btn-primary">Get Loan Details</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Nissan Rogue</h3>
+                <p>Starting at $35,000</p>
+                <button class="btn-primary">Get Loan Details</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Nissan Leaf</h3>
+                <p>Starting at $25,000</p>
+                <button class="btn-primary">Get Loan Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <
+
